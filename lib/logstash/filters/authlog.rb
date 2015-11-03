@@ -33,7 +33,8 @@ class LogStash::Filters::Authlog < LogStash::Filters::Base
     if @message
       # Replace the event message with our message as configured in the
       # config file.
-      event["message"] = @message + event["message"]
+      event["message"] = event["message"]
+      event['miss'] = @message
     end
 
     # filter_matched should go in the last line of our successful code
